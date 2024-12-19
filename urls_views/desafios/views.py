@@ -18,7 +18,8 @@ def desafio_semana_numero(request, dia):
         return HttpResponseNotFound("Dia inválido")
     dia_escolhido = dias[dia - 1]
     return HttpResponseRedirect("/desafios/" + dia_escolhido)
-
+    redireciona_rota = reverse("desafio_semanal", args=[dia_escolhido])
+    return HttpResponseRedirect(redireciona_rota)
 def desafio_semana(request, dia):
     try:
         desafio = desafios_dia_semana[dia],
